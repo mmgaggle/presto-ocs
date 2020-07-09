@@ -2,12 +2,37 @@
 
 # Typical OCS steps
 
-# Extra Steps
+Create OCS namespace
 
-Setup Ceph object storage (only required on EC2)
+```
+oc create namespace openshift-storage
+```
+
+Install OCS using OLM
+
+```
+insert screenshot
+``` 
+
+Install OCS using Console
+
+```
+insert screenshot
+```
+
+# Extra OCS Setup
+
+OCS does not automatically deploy Ceph object storage in EC2, so we need to
+provide a CephObjectStore CR .
 
 ```
 oc create -f rgw.yaml
+```
+
+Even outside of EC2, OCS does not by default create a Ceph object storage
+class for object bucket claims (this may change in 4.5/4.6).
+
+```
 oc create -f rgw-class.yaml
 ```
 
