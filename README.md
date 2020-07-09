@@ -1,5 +1,10 @@
 # Setting up OCS + Presto
 
+# OCP Cluster notes
+
+We noticed an issue when the OpenShift SDN was used that prevented presto
+workers from talking to some hosts.
+
 # Typical OCS steps
 
 Create OCS namespace
@@ -36,6 +41,8 @@ class for object bucket claims (this may change in 4.5/4.6).
 oc create -f rgw-class.yaml
 ```
 
+# Presto Setup
+
 Create Presto namespace
 
 ```
@@ -69,4 +76,15 @@ Edit and create Presto CR
 oc create -f presto.yaml
 ```
 
+# Using Presto
+
+You can either expose the coordinator and connect from your local machine using
+the presto-cli, or you can rsh to the coordinator deployment/pod and use the
+presto-cli located there.
+
+```
+oc rsh deployment/presto-coordinator
+```
+
+# Generating data with TPC-DS connector
 
