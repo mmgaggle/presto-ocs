@@ -1,0 +1,8 @@
+apiVersion: ceph.rook.io/v1
+kind: CephObjectStoreUser
+metadata:
+  name: s3user1
+  namespace: openshift-storage
+spec:
+  store: s3a
+  displayName: "s3 user1"
