@@ -4,5 +4,5 @@ metadata:
   name: s3user1
   namespace: openshift-storage
 spec:
-  store: s3a
+  store: ocs-storagecluster-cephobjectstore
   displayName: "s3 user1"
