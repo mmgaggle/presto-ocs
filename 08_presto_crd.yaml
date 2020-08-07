@@ -34,19 +34,15 @@ spec:
 #    awsSecretName: prestodb
     additionalProperties: |
       connector.name=hive-hadoop2
-      hive.s3.use-instance-credentials=false
-      hive.s3.endpoint=http://rook-ceph-rgw-s3a.openshift-storage.svc.cluster.local
-      hive.s3.aws-access-key=433UEF6TZYJ9QKIGQES0
-      hive.s3.aws-secret-key=KPh7MB85qg6pmEECGAo9AkMnJeuBSttTE2l0qxP4
-      hive.s3.signer-type=AWSS3V4SignerType
-      hive.s3.path-style-access=true
-      hive.s3.use-instance-credentials=false
-      hive.s3.staging-directory=/tmp
-      hive.s3.ssl.enabled=false
-      hive.s3.sse.enabled=false
-      hive.s3.max-connections=100
+          hive.s3.endpoint=http://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
+          hive.s3.signer-type=AWSS3V4SignerType
+          hive.s3.path-style-access=True
+          hive.s3.staging-directory=/tmp
+          hive.s3.ssl.enabled=false
+          hive.s3.sse.enabled=false
+          hive.s3.max-connections=100
     internalMetastore:
-      s3Endpoint: http://rook-ceph-rgw-s3a.openshift-storage.svc.cluster.local
+      s3Endpoint: http://rook-ceph-rgw-ocs-storagecluster-cephobjectstore.openshift-storage.svc.cluster.local
       image:
         imagepullPolicy: IfNotPresent
       memory: 0.5G
