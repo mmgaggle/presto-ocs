@@ -33,13 +33,13 @@ spec:
   hive:
     additionalProperties: |
       connector.name=hive-hadoop2
-      hive.s3.endpoint=http://172.30.122.207
+      hive.s3.endpoint=http://172.30.197.73
       hive.s3.signer-type=S3SignerType
       hive.s3.path-style-access=true
       hive.s3.staging-directory=/tmp
       hive.s3.ssl.enabled=false
       hive.s3.sse.enabled=false
-    awsSecretName: prestodb
+    awsSecretName: presto-s3-secrets
     internalMetastore:
       cpu: 0.5
       image:
@@ -49,7 +49,7 @@ spec:
         jdbcUrl: 'jdbc:postgresql://postgresql.presto.svc.cluster.local/redhat'
         password: redhat
         username: redhat
-      s3Endpoint: 'http://172.30.122.207'
+      s3Endpoint: 'http://172.30.197.73'
   additionalCatalogs:
     postgresql: >
       connector.name=postgresql
