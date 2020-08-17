@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: s3cmd
+  namespace: openshift-storage
+spec:
+  containers:
+  - name: s3cmd
+    image: karansingh/s3cmd-k8s

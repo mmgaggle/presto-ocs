@@ -122,10 +122,10 @@ insert screenshot
 
 ### Edit and create Presto CR
 
-Edit the `09_presto_cr.yaml` file and replace the endoint addresses with the IP of the RGW service (IP is a workaround to force the use of path-style access to the S3 storage).
+Edit the `10_presto_cr.yaml` file and replace the endoint addresses with the IP of the RGW service (IP is a workaround to force the use of path-style access to the S3 storage).
 
 ```bash
-oc create -f 09_presto_cr.yaml
+oc create -f 10_presto_cr.yaml
 ```
 
 This will create a Presto instance as well as the Route to connect to it.
@@ -152,3 +152,16 @@ presto --server <replace_with_route> --catalog hive --schema default
 ### S3 storage
 
 Before being able to use the S3 storage to store tables, you must create a bucket. You can use you favorite tool, like s3cmd, using the access/secret keys from the user created previously.
+
+### s3cmd test
+
+```
+oc create -f 11_s3cmd.yaml
+oc rsh s3cmd
+
+s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl  --host=rook-ceph-rgw-ocs-storagecluster-cephobjectstore --host-bucket="rook-ceph-rgw-ocs-storagecluster-cephobjectstore/%(bucket)" ls 
+
+s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl  --host=rook-ceph-rgw-ocs-storagecluster-cephobjectstore --host-bucket="rook-ceph-rgw-ocs-storagecluster-cephobjectstore/%(bucket)" mb s3://bucket-1
+
+s3cmd --access_key=S3user1 --secret_key=S3user1key --no-ssl  --host=rook-ceph-rgw-ocs-storagecluster-cephobjectstore --host-bucket="rook-ceph-rgw-ocs-storagecluster-cephobjectstore/%(bucket)" ls
+```
