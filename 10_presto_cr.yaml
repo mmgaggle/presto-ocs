@@ -21,14 +21,18 @@ spec:
   memory:
     nodeMemoryHeadroom: 1Gi
   coordinator:
-    cpuLimit: '7'
-    cpuRequest: ''
-    memoryAllocation: ''
-  worker:
-    count: 3
     cpuLimit: ''
-    cpuRequest: ''
-    memoryAllocation: ''
+    cpuRequest: '32'
+    memoryAllocation: '64Gi'
+    nodeSelector:
+      role: "presto-coordinator"
+  worker:
+    count: 4
+    cpuLimit: ''
+    cpuRequest: '80'
+    memoryAllocation: '230Gi'
+    nodeSelector:
+      role: "presto-worker"
     prestoWorkerShutdownGracePeriodSeconds: 1
   hive:
     additionalProperties: |
