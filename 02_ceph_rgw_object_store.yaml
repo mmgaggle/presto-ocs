@@ -46,11 +46,11 @@ items:
       port: 80
       resources:
         limits:
-          cpu: "2"
-          memory: 4Gi
+          cpu: "1"
+          memory: 2Gi
         requests:
           cpu: "1"
-          memory: 4Gi
+          memory: 1Gi
       securePort: 0
       sslCertificateRef: ""
     metadataPool:

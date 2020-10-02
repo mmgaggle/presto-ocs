@@ -11,5 +11,5 @@ parameters:
 provisioner: ceph.rook.io/bucket
 parameters:
   objectStoreNamespace: openshift-storage
-  objectStoreName: s3a
+  objectStoreName: ocs-storagecluster-cephobjectstore
 reclaimPolicy: Retain
